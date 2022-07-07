@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3c84fddd-4a6a-4ec7-bc65-f4bae2a04870": {
+      "ProjectGuid": "3c84fddd-4a6a-4ec7-bc65-f4bae2a04870",
+      "DisplayName": "WebAPI_Cadastro",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
