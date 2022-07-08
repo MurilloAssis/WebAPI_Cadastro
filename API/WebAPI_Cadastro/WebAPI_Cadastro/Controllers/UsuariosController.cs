@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebAPI_Cadastro.Contexts;
+using WebAPI_Cadastro.Interfaces;
 using WebAPI_Cadastro.Models;
 using WebAPI_Cadastro.ViewModels;
 
@@ -15,10 +16,12 @@ namespace WebAPI_Cadastro.Controllers
     {
         IntelitraderContext ctx = new IntelitraderContext();
         private readonly ILogger<UsuariosController> _logger;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuariosController(ILogger<UsuariosController> logger)
+        public UsuariosController(ILogger<UsuariosController> logger, IUsuarioRepository repo)
         {
             _logger = logger;  
+            _usuarioRepository = repo;
         }
         
         [HttpGet]
@@ -27,7 +30,7 @@ namespace WebAPI_Cadastro.Controllers
         {
             try
             {
-                List<Usuario> usuarios = ctx.Usuarios.ToList();
+                List<Usuario> usuarios = _usuarioRepository.GetUsuarios();
                 _logger.LogInformation("Usuarios listados" + usuarios);
 
                 return Ok(usuarios);
@@ -48,13 +51,7 @@ namespace WebAPI_Cadastro.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Usuario usuario = new Usuario();
-                    usuario.FirstName = novoUsuario.FirstName;
-                    usuario.SurName = novoUsuario.SurName;
-                    usuario.CreationDate = DateTime.Now;
-                    usuario.Age = novoUsuario.Age;
-                    ctx.Usuarios.Add(usuario);
-                    ctx.SaveChanges();
+                    Usuario usuario = _usuarioRepository.PostUsuarios(novoUsuario);
                     _logger.LogInformation("Usuário cadastrado" + usuario);
 
 
@@ -76,17 +73,11 @@ namespace WebAPI_Cadastro.Controllers
         [HttpPut("AtualizarUsuarios/{id}")]
         public IActionResult UpdateUsuarios(UsuariosViewModel usuarioAtualizado, int id)
         {
-            Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
-
-            try
+             try
             {
                 if (ModelState.IsValid)
                 {
-                    usuarioBuscado.FirstName = usuarioAtualizado.FirstName;
-                    usuarioBuscado.SurName = usuarioAtualizado.SurName;
-                    usuarioBuscado.Age = usuarioAtualizado.Age;
-                    ctx.Usuarios.Update(usuarioBuscado);
-                    ctx.SaveChanges();
+                    Usuario usuarioBuscado = _usuarioRepository.UpdateUsuarios(usuarioAtualizado, id);
                     _logger.LogInformation("Usuario Atualizado" + usuarioBuscado);
 
                     return Ok(usuarioBuscado);
@@ -108,15 +99,13 @@ namespace WebAPI_Cadastro.Controllers
         [HttpDelete]
         [Route("DeletarUsuarios/{id:int}")]
         public IActionResult DeletarUsuarios(int id)
-        {
-            Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
+        {         
             try
             {
-                ctx.Usuarios.Remove(usuarioBuscado);
-                ctx.SaveChangesAsync();
-                _logger.LogInformation("Usuário deletado! " + usuarioBuscado);
+                _usuarioRepository.DeletarUsuarios(id);
+                _logger.LogInformation($"Usuário id:{id} deletado!");
 
-                return StatusCode(204);
+                return NoContent();
             }
             catch (Exception ex)
             {

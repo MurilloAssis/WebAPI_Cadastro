@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPI_Cadastro.Contexts;
+using WebAPI_Cadastro.Interfaces;
+using WebAPI_Cadastro.Repositories;
 
 namespace WebAPI_Cadastro
 {
@@ -28,7 +32,15 @@ namespace WebAPI_Cadastro
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "WebApi_Intellitrader", Version = "v1" });
             });
-            
+
+            services.AddDbContext<IntelitraderContext>(options =>
+                             options.UseSqlServer(Configuration.GetConnectionString("Default"))
+                         );
+
+
+            services.AddTransient<DbContext, IntelitraderContext>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +56,8 @@ namespace WebAPI_Cadastro
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi_Intellitrader");
                 c.RoutePrefix = string.Empty;
             });
+
+
 
 
             app.UseRouting();

@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WebAPI_Cadastro.Controllers;
+using WebAPI_Cadastro.Interfaces;
 using WebAPI_Cadastro.ViewModels;
 using Xunit;
 
@@ -20,8 +21,8 @@ namespace WebApi_Cadastro.Test.Controllers
         public void Deve_Retornar_Lista_Usuarios()
         {
             var fakelogger = new Mock<ILogger<UsuariosController>>();
-
-            var controller = new UsuariosController(fakelogger.Object);
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
 
             var result = controller.GetUsuarios();
 
@@ -37,7 +38,8 @@ namespace WebApi_Cadastro.Test.Controllers
             novoUsuario.Age = 10;
 
             var fakelogger = new Mock<ILogger<UsuariosController>>();
-            var controller = new UsuariosController(fakelogger.Object);
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
             var resultado = controller.PostUsuarios(novoUsuario);
 
             ObjectResult actionResult = resultado as ObjectResult;
@@ -55,7 +57,8 @@ namespace WebApi_Cadastro.Test.Controllers
             alteraUsuario.Age = 10;
 
             var fakelogger = new Mock<ILogger<UsuariosController>>();
-            var controller = new UsuariosController(fakelogger.Object);
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
             var resultado = controller.UpdateUsuarios(alteraUsuario, 1);
 
             ObjectResult actionResult = resultado as ObjectResult;
@@ -63,17 +66,20 @@ namespace WebApi_Cadastro.Test.Controllers
             Assert.NotNull(resultado);
             Assert.Equal(200, actionResult.StatusCode);
         }
+        
         [Fact]
         public void Deve_Excluir_Usuario()
         {
             var fakelogger = new Mock<ILogger<UsuariosController>>();
-            var controller = new UsuariosController(fakelogger.Object);
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
 
             var resultado = controller.DeletarUsuarios(1);
 
-            ObjectResult actionResult = resultado as ObjectResult;
+            NoContentResult actionResult = resultado as NoContentResult;
 
             Assert.NotNull(resultado);
+            Assert.IsType<NoContentResult>(actionResult);
             Assert.Equal(204, actionResult.StatusCode);
         }
     }
