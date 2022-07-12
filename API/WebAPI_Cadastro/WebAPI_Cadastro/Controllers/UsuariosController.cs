@@ -51,11 +51,17 @@ namespace WebAPI_Cadastro.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Usuario usuario = _usuarioRepository.PostUsuarios(novoUsuario);
-                    _logger.LogInformation("Usuário cadastrado" + usuario);
+                    if (novoUsuario.FirstName != null && novoUsuario.SurName != null && novoUsuario.Age > 0)
+                    {
+
+                        Usuario usuario = _usuarioRepository.PostUsuarios(novoUsuario);
+                        _logger.LogInformation("Usuário cadastrado" + usuario);
 
 
-                    return StatusCode(201, usuario);
+                        return StatusCode(201, usuario);
+                    }
+                    return BadRequest();
+
                 }
                 else
                 {
@@ -75,17 +81,19 @@ namespace WebAPI_Cadastro.Controllers
         {
              try
             {
-                if (ModelState.IsValid)
+                if (usuarioAtualizado.FirstName != null && usuarioAtualizado.SurName != null && usuarioAtualizado.Age > 0)
                 {
+                    
                     Usuario usuarioBuscado = _usuarioRepository.UpdateUsuarios(usuarioAtualizado, id);
                     _logger.LogInformation("Usuario Atualizado" + usuarioBuscado);
 
                     return Ok(usuarioBuscado);
+                    
                 }
                 else
                 {
                     _logger.LogWarning("Dados inválidos: " + usuarioAtualizado);
-                    return StatusCode(400);
+                    return BadRequest();
                 }
             }
             catch (Exception ex)
@@ -100,19 +108,23 @@ namespace WebAPI_Cadastro.Controllers
         [Route("DeletarUsuarios/{id:int}")]
         public IActionResult DeletarUsuarios(int id)
         {         
-            try
+            if (id > 0)
             {
-                _usuarioRepository.DeletarUsuarios(id);
-                _logger.LogInformation($"Usuário id:{id} deletado!");
+                try
+                {
+                    _usuarioRepository.DeletarUsuarios(id);
+                    _logger.LogInformation($"Usuário id:{id} deletado!");
 
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
+                    return NoContent();
+                }
+                catch (Exception ex)
+                {
 
-                _logger.LogError(ex, "Usuário não encontrado");
-                return StatusCode(400, ex);
+                    _logger.LogError(ex, "Usuário não encontrado");
+                    return StatusCode(400, ex);
+                }
             }
+            return BadRequest();
         }
     }
 }

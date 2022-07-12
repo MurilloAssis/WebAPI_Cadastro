@@ -16,9 +16,9 @@ namespace WebAPI_Cadastro.Repositories
 
         public void DeletarUsuarios(int id)
         {
-            Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
             try
             {
+                Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
                 ctx.Usuarios.Remove(usuarioBuscado);
                 ctx.SaveChangesAsync();                         
             }

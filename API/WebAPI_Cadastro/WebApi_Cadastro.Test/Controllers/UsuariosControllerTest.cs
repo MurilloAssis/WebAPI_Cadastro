@@ -82,5 +82,60 @@ namespace WebApi_Cadastro.Test.Controllers
             Assert.IsType<NoContentResult>(actionResult);
             Assert.Equal(204, actionResult.StatusCode);
         }
+
+
+        
+
+        [Fact]
+        public void Deve_Falhar_Cadastrar_Usuario()
+        {
+            UsuariosViewModel novoUsuario = new UsuariosViewModel();
+            novoUsuario.FirstName = "Teste";
+            novoUsuario.SurName = "Teste";
+
+            var fakelogger = new Mock<ILogger<UsuariosController>>();
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
+            var resultado = controller.PostUsuarios(novoUsuario);
+
+            BadRequestResult actionResult = resultado as BadRequestResult;
+
+            Assert.NotNull(resultado);
+            Assert.IsType<BadRequestResult>(actionResult);
+        }
+
+        [Fact]
+        public void Deve_Falhar_Alterar_Usuario()
+        {
+            UsuariosViewModel alteraUsuario = new UsuariosViewModel();
+            alteraUsuario.FirstName = "Teste";
+            alteraUsuario.SurName = "Teste";
+
+            var fakelogger = new Mock<ILogger<UsuariosController>>();
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
+            var resultado = controller.UpdateUsuarios(alteraUsuario, 0);
+
+            BadRequestResult actionResult = resultado as BadRequestResult;
+
+            Assert.NotNull(resultado);
+            Assert.IsType<BadRequestResult>(actionResult);
+        }
+
+        [Fact]
+        public void Deve_Falhar_Excluir_Usuario()
+        {
+            var fakelogger = new Mock<ILogger<UsuariosController>>();
+            var fakeRepository = new Mock<IUsuarioRepository>();
+            var controller = new UsuariosController(fakelogger.Object, fakeRepository.Object);
+
+            var resultado = controller.DeletarUsuarios(0);
+
+            BadRequestResult actionResult = resultado as BadRequestResult;
+
+            Assert.NotNull(resultado);
+            Assert.IsType<BadRequestResult>(actionResult);
+            
+        }
     }
 }
