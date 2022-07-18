@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api: 
+    build:
+        context: ./API/WebApi_Cadastro
+        dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=Intellitrader2022
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+    ports:
+      - "7000:1433"
+  
