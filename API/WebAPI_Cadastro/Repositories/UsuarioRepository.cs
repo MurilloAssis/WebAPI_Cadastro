@@ -14,7 +14,7 @@ namespace WebAPI_Cadastro.Repositories
         IntelitraderContext ctx = new IntelitraderContext();
        
 
-        public void DeletarUsuarios(int id)
+        public void DeletarUsuarios(string id)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace WebAPI_Cadastro.Repositories
             }
         }
 
-        public Usuario UpdateUsuarios(UsuariosViewModel usuarioAtualizado, int id)
+        public Usuario UpdateUsuarios(UsuariosViewModel usuarioAtualizado, string id)
         {
             Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == id);
             try
@@ -54,6 +54,7 @@ namespace WebAPI_Cadastro.Repositories
             try
             {
                 Usuario usuario = new Usuario();
+                usuario.IdUsuario = Guid.NewGuid().ToString();
                 usuario.FirstName = novoUsuario.FirstName;
                 usuario.SurName = novoUsuario.SurName;
                 usuario.CreationDate = DateTime.Now;

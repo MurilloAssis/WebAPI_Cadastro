@@ -31,14 +31,20 @@ namespace WebAPI_Cadastro.Controllers
             try
             {
                 List<Usuario> usuarios = _usuarioRepository.GetUsuarios();
-                _logger.LogInformation("Usuarios listados" + usuarios);
+
+                if (usuarios.Count == 0)
+                {
+                    _logger.LogInformation("Não há usuários cadastrados no sistema");
+                    return NoContent(); 
+                }
+                _logger.LogInformation(usuarios.Count + " Usuarios listados");
 
                 return Ok(usuarios);
             }
             catch (Exception ex)
             {
 
-                _logger.LogError(ex, "Usuarios não encontrados");
+                _logger.LogError(ex, " Usuarios não encontrados");
                 return BadRequest(ex);
             }
         }
@@ -77,7 +83,7 @@ namespace WebAPI_Cadastro.Controllers
         }
 
         [HttpPut("AtualizarUsuarios/{id}")]
-        public IActionResult UpdateUsuarios(UsuariosViewModel usuarioAtualizado, int id)
+        public IActionResult UpdateUsuarios(UsuariosViewModel usuarioAtualizado, string id)
         {
              try
             {
@@ -105,10 +111,10 @@ namespace WebAPI_Cadastro.Controllers
         }
 
         [HttpDelete]
-        [Route("DeletarUsuarios/{id:int}")]
-        public IActionResult DeletarUsuarios(int id)
+        [Route("DeletarUsuarios/{id}")]
+        public IActionResult DeletarUsuarios(string id)
         {         
-            if (id > 0)
+            if (id != null)
             {
                 try
                 {

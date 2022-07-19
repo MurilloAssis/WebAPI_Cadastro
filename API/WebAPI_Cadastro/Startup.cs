@@ -29,7 +29,7 @@ namespace WebAPI_Cadastro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-                
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "WebApi_Intellitrader", Version = "v1" });

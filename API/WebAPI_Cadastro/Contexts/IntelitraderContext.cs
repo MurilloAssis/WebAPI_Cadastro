@@ -40,7 +40,11 @@ namespace WebAPI_Cadastro.Contexts
 
                 entity.ToTable("USUARIO");
 
-                entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+                entity.Property(e => e.IdUsuario)
+                    .IsRequired()
+                    .HasMaxLength(36)
+                    .IsUnicode(false)
+                    .HasColumnName("idUsuario");
 
                 entity.Property(e => e.Age).HasColumnName("age");
 

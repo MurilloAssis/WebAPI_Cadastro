@@ -6,8 +6,8 @@ namespace WebAPI_Cadastro.Interfaces
 {
     public interface IUsuarioRepository
     {
-        void DeletarUsuarios(int id);
-        Usuario UpdateUsuarios(UsuariosViewModel usuarioAtualizado, int id);
+        void DeletarUsuarios(string id);
+        Usuario UpdateUsuarios(UsuariosViewModel usuarioAtualizado, string id);
         Usuario PostUsuarios(UsuariosViewModel novoUsuario);
         List<Usuario> GetUsuarios();
     }
