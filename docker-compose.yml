@@ -8,12 +8,24 @@ services:
       - "8000:80"
     depends_on:
       - db
+  dbData: 
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    entrypoint: /bin/bash
   db:
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
-      - SA_PASSWORD=Intellitrader2022
+      - SA_PASSWORD=Intelitrader2022
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
     ports:
       - "7000:1433"
-  
+    volumes:
+      - /var/opt/mssql
+      
+      - ./:/usr/src/app 
+    
+    working_dir: /usr/src/app 
+    
+    command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    volumes_from:
+      - dbData
