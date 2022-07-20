@@ -59,7 +59,6 @@ namespace WebAPI_Cadastro.Contexts
                     .HasColumnName("firstName");
 
                 entity.Property(e => e.SurName)
-                    .IsRequired()
                     .HasMaxLength(256)
                     .IsUnicode(false)
                     .HasColumnName("surName");

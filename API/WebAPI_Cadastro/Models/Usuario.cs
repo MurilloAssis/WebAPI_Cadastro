@@ -9,7 +9,7 @@ namespace WebAPI_Cadastro.Models
     {
         public string IdUsuario { get; set; }
         public string FirstName { get; set; }
-        public string SurName { get; set; }
+        public string? SurName { get; set; }
         public int Age { get; set; }
         public DateTime CreationDate { get; set; }
     }
