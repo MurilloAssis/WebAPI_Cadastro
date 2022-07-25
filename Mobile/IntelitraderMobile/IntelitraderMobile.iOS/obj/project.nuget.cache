@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ccfkQHJ0eQYtaULpU+QBk/3JJJhyEx+AAz3Vj23yzV/otgvy3Nq/OT4GUt9HkHZ2y6kQj+SStYnKp6/j/Ffvnw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Murillo\\Desktop\\Intellitrader\\Mobile\\IntelitraderMobile\\IntelitraderMobile\\IntelitraderMobile.iOS\\IntelitraderMobile.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Murillo\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Murillo\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Murillo\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

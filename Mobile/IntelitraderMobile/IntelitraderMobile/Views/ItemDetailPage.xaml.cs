@@ -1,0 +1,15 @@
+﻿using IntelitraderMobile.ViewModels;
+using System.ComponentModel;
+using Xamarin.Forms;
+
+namespace IntelitraderMobile.Views
+{
+    public partial class ItemDetailPage : ContentPage
+    {
+        public ItemDetailPage()
+        {
+            InitializeComponent();
+            BindingContext = new ItemDetailViewModel();
+        }
+    }
+}
