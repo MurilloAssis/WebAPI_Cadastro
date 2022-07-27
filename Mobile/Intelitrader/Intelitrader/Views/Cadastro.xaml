@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Intelitrader.Views.Cadastro">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Cadastre um usuário" FontSize="Title"/>
+            <Entry x:Name="FirstName" Keyboard="Text" Placeholder="FirstName"/>
+            <Entry x:Name="SurName" Keyboard="Text" Placeholder="SurName"/>
+            <Entry x:Name="Age" Keyboard="Numeric" Placeholder="Age"/>
+            <Button x:Name="Botao" Text="Cadastrar"/>
+            <Label x:Name="Resposta" FontSize="Medium" TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

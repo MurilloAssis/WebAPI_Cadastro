@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "663a0634-0619-4a14-a561-0875fc1e72ae": {
+      "ProjectGuid": "663a0634-0619-4a14-a561-0875fc1e72ae",
+      "DisplayName": "Intelitrader",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    },
+    "002ed718-a53b-41b5-86e3-70427d27f372": {
+      "ProjectGuid": "002ed718-a53b-41b5-86e3-70427d27f372",
+      "DisplayName": "Intelitrader.Android",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

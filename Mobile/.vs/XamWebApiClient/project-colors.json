@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "189601d4-8ff1-4fe8-b254-d08a15f40b13": {
+      "ProjectGuid": "189601d4-8ff1-4fe8-b254-d08a15f40b13",
+      "DisplayName": "XamWebApiClient",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

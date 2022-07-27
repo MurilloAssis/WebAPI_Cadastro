@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Intelitrader.Views.MainPage">
+
+    <RefreshView x:Name="myRefreshView" Refreshing="RefreshView_Refreshing">
+        <ScrollView>
+            <StackLayout>
+                <Button Text="Cadastrar Novo Usuário" Clicked="TelaCadastro" FontSize="Medium" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="85" Padding="10">
+                    <Label Text="Firstname" FontSize="Medium" TextColor="Black"/>
+                    <Label Text="Surname" FontSize="Medium" TextColor="Black"/>
+                    <Label Text="Age" FontSize="Medium" TextColor="Black"/>
+                </StackLayout>
+                <ListView x:Name="listaUsuarios">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal" Spacing="95">
+                                    <Label Text="{Binding Firstname}" FontSize="Medium" TextColor="Black"/>
+                                    <Label Text="{Binding Surname}" FontSize="Medium" TextColor="Black"/>
+                                    <Label Text="{Binding Age}" FontSize="Medium" TextColor="Black"/>
+                                </StackLayout>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Atualizar" Clicked="Atualizar_Clicked" CommandParameter="{Binding .}"/>
+                                    <MenuItem Text="Excluir" Clicked="Excluir_Clicked" CommandParameter="{Binding .}"/>
+                                </ViewCell.ContextActions>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

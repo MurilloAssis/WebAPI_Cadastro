@@ -1,0 +1,17 @@
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.csproj.AssemblyReference.cache
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Views\Cadastro.xaml.g.cs
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Views\InfoUsuario.xaml.g.cs
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.AssemblyInfoInputs.cache
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.AssemblyInfo.cs
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.csproj.CoreCompileInputs.cache
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.dll
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\ref\Intelitrader.dll
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\Intelitrader.pdb
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\bin\Debug\netstandard2.0\Intelitrader.deps.json
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\bin\Debug\netstandard2.0\Intelitrader.dll
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\bin\Debug\netstandard2.0\ref\Intelitrader.dll
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\bin\Debug\netstandard2.0\Intelitrader.pdb
+C:\Users\Murillo\Desktop\Intellitrader\Mobile\Intelitrader\Intelitrader\obj\Debug\netstandard2.0\XamlC.stamp

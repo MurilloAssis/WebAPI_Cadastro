@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Intelitrader.Views.InfoUsuario">
+    <ContentPage.Content>
+        <StackLayout Spacing="30">
+            <StackLayout>
+                <Label Text="FirstName" />
+                <Entry x:Name="FirstName" Text="{Binding Firstname}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Surname" />
+                <Entry x:Name="Surname" Text="{Binding Surname}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Age" />
+                <Entry x:Name="Age" Text="{Binding Age}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="CreationDate: " />
+                <Label x:Name="CreationDate" Text="{Binding creationDate}" />
+            </StackLayout>
+            <Button x:Name="Botao" Text="Atualizar"/>
+            <Label x:Name="Resposta" FontSize="Medium" TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
