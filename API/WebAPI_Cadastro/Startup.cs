@@ -43,6 +43,16 @@ namespace WebAPI_Cadastro
             services.AddTransient<DbContext, IntelitraderContext>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +73,7 @@ namespace WebAPI_Cadastro
 
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
